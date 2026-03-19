@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --verde-cactus: #4CAF50;
+  --naranja-atardecer: #FF9800;
+  --amarillo-maiz: #FFEB3B;
+  --negro-mate: #1a1a1a;
+  --terracota-oscuro: #8B4513;
+  --terracota-claro: #A0522D;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
