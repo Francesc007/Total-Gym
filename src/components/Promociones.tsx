@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { ImageVignette } from './ImageVignette'
 
 const promociones = [
   {
@@ -26,8 +27,8 @@ const promociones = [
 
 export function Promociones() {
   return (
-    <section id="promociones" className="py-20 md:py-28 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_30%_20%,#737373_0%,transparent_45%)]" />
+    <section id="promociones" className="relative py-20 md:py-28 bg-transparent overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.35] bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(115,115,115,0.08),transparent_65%)]" />
 
       <div className="max-w-6xl mx-auto px-5 sm:px-6 relative">
         <motion.div
@@ -58,17 +59,22 @@ export function Promociones() {
               whileHover={{ y: -5 }}
               className={`rounded-2xl border-2 ${promo.borde} bg-black overflow-hidden shadow-xl`}
             >
-              <div className="relative h-44 overflow-hidden">
-                <motion.img
-                  src={promo.imagen}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                  whileHover={{ scale: 1.07 }}
+              <div className="relative h-44 overflow-hidden shadow-[0_10px_32px_-10px_rgba(0,0,0,0.38)]">
+                <motion.div
+                  className="h-full w-full"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.45 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                >
+                  <img
+                    src={promo.imagen}
+                    alt=""
+                    className="h-full w-full object-cover block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </motion.div>
+                <ImageVignette />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
               </div>
               <div className="p-8 sm:p-9">
                 <h3 className="font-display text-xl font-bold text-white mb-3">{promo.titulo}</h3>

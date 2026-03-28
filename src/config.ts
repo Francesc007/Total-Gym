@@ -1,8 +1,18 @@
 // Emoji de marca para URLs de WhatsApp (codificación Unicode explícita)
 const BRAND_EMOJI = '\u{1F4AA}' // 💪
 
+/** Archivos en `public/` con respeto a `base` de Vite (subcarpetas en deploy). */
+function publicAsset(filename: string): string {
+  const b = import.meta.env.BASE_URL || '/'
+  const normalized = b.endsWith('/') ? b : `${b}/`
+  return `${normalized}${filename.replace(/^\//, '')}`
+}
+
 /** Logo en `public/` (nombre con espacios codificado para URL) */
 export const LOGO_SRC = '/Logo%20Total%20Gym.jpg'
+
+/** Imagen `public/fit.jpg` para la tarjeta Plan Fit */
+export const planFitImageUrl = publicAsset('fit.jpg')
 
 export const CONFIG = {
   siteName: 'H TOTAL GYM',

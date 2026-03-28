@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { PageBackdrop } from './components/PageBackdrop'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { Pricing } from './components/Pricing'
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+      <PageBackdrop />
       <Navbar onReservarClick={() => setModalOpen(true)} />
       <Hero onReservarClick={() => setModalOpen(true)} />
       <Pricing onCtaClick={() => setModalOpen(true)} />

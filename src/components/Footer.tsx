@@ -4,7 +4,10 @@ import { CONFIG, LOGO_SRC } from '../config'
 
 export function Footer() {
   return (
-    <footer id="ubicacion" className="bg-white border-t border-neutral-200 py-16 md:py-20">
+    <footer
+      id="ubicacion"
+      className="bg-neutral-100/70 backdrop-blur-sm border-t border-neutral-200/90 py-16 md:py-20 shadow-[0_-8px_32px_-12px_rgba(0,0,0,0.06)]"
+    >
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="grid md:grid-cols-3 gap-12 md:gap-10 mb-14">
           <motion.div

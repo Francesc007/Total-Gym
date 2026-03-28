@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --page-bg: #ffffff;
+  --page-bg: #f5f5f5;
   --box-black: #0a0a0a;
   --accent-gray: #737373;
   --accent-gray-strong: #525252;

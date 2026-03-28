@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ShowerHead, Dumbbell, Users, Smartphone } from 'lucide-react'
+import { ImageVignette } from './ImageVignette'
 
 const items = [
   {
@@ -34,7 +35,10 @@ const items = [
 
 export function Amenities() {
   return (
-    <section id="amenidades" className="py-20 md:py-28 bg-neutral-50 border-y border-neutral-200">
+    <section
+      id="amenidades"
+      className="py-20 md:py-28 bg-white/50 backdrop-blur-[2px] border-y border-neutral-200/80 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6)]"
+    >
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -64,17 +68,22 @@ export function Amenities() {
               whileHover={{ y: -4 }}
               className="group rounded-2xl border border-neutral-200 bg-black overflow-hidden shadow-lg shadow-black/10"
             >
-              <div className="relative h-52 sm:h-56 overflow-hidden">
-                <motion.img
-                  src={item.imagen}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                  whileHover={{ scale: 1.08 }}
+              <div className="relative h-52 sm:h-56 overflow-hidden shadow-[0_10px_36px_-10px_rgba(0,0,0,0.4)]">
+                <motion.div
+                  className="h-full w-full"
+                  whileHover={{ scale: 1.06 }}
                   transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
+                >
+                  <img
+                    src={item.imagen}
+                    alt=""
+                    className="h-full w-full object-cover block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </motion.div>
+                <ImageVignette />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-xl bg-neutral-700/90 text-neutral-200 ring-1 ring-neutral-500/50 backdrop-blur-sm">
                   <item.Icon className="w-6 h-6" strokeWidth={1.75} />
                 </div>

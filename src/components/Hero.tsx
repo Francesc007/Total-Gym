@@ -7,7 +7,7 @@ export function Hero({ onReservarClick }: { onReservarClick: () => void }) {
   return (
     <section
       id="inicio"
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-white"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-transparent"
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -15,7 +15,7 @@ export function Hero({ onReservarClick }: { onReservarClick: () => void }) {
         aria-hidden
       />
       {/* Overlay más suave para que la foto se vea más clara */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/18 to-white pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/18 to-neutral-50 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-6 text-center pt-28 pb-20 sm:pt-32">
         <motion.p

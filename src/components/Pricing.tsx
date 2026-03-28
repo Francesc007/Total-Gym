@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Check } from 'lucide-react'
+import { planFitImageUrl } from '../config'
+import { ImageVignette } from './ImageVignette'
 
 const planes = [
   {
@@ -10,8 +12,8 @@ const planes = [
     precio: '$599',
     periodo: '/mes',
     destacado: false,
-    imagen:
-      'https://images.unsplash.com/photo-1593079831268-9451dfa2c889?auto=format&fit=crop&w=900&q=85',
+    imagen: planFitImageUrl,
+    fitLocal: true as const,
     beneficios: [
       'Acceso al área de cardio y peso libre',
       'Casilleros y regaderas',
@@ -27,6 +29,7 @@ const planes = [
     destacado: true,
     imagen:
       'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=82',
+    fitLocal: false as const,
     beneficios: [
       'Todo lo del Plan Fit',
       'Clases grupales ilimitadas',
@@ -48,6 +51,7 @@ function PlanCard({
 }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-40px' })
+  const isFit = plan.fitLocal
 
   return (
     <motion.article
@@ -58,21 +62,30 @@ function PlanCard({
       whileHover={{ y: -6 }}
       className={`relative rounded-2xl flex flex-col h-full border overflow-hidden transition-shadow duration-300 ${
         plan.destacado
-          ? 'bg-black border-neutral-600 shadow-xl shadow-black/25 ring-1 ring-neutral-700/50'
-          : 'bg-black border-neutral-800'
+          ? 'bg-black border-neutral-600 shadow-xl shadow-black/30 ring-1 ring-neutral-700/50'
+          : 'bg-black border-neutral-800 shadow-lg shadow-black/15'
       }`}
     >
-      <div className="relative h-48 sm:h-52 overflow-hidden shrink-0">
-        <motion.img
-          src={plan.imagen}
-          alt=""
-          className="w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
-          whileHover={{ scale: 1.06 }}
+      <div className="relative h-48 sm:h-52 shrink-0 overflow-hidden shadow-[0_12px_40px_-12px_rgba(0,0,0,0.45)]">
+        <motion.div
+          className="h-full w-full"
+          whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent pointer-events-none" />
+        >
+          <img
+            src={plan.imagen}
+            alt={plan.nombre}
+            className="h-full w-full object-cover block"
+            loading={isFit ? 'eager' : 'lazy'}
+            decoding="async"
+            fetchPriority={isFit ? 'high' : undefined}
+          />
+        </motion.div>
+        <ImageVignette />
+        {/* Plan Fit: sin capa extra encima; Plan Black: leve degradado inferior */}
+        {!isFit && (
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+        )}
       </div>
 
       {plan.destacado && (
@@ -124,7 +137,7 @@ function PlanCard({
 
 export function Pricing({ onCtaClick }: { onCtaClick: () => void }) {
   return (
-    <section id="planes" className="py-20 md:py-28 bg-white">
+    <section id="planes" className="relative py-20 md:py-28 bg-transparent border-t border-neutral-200/70">
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
