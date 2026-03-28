@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
-import { Menu } from './components/Menu'
+import { Pricing } from './components/Pricing'
+import { Amenities } from './components/Amenities'
 import { Promociones } from './components/Promociones'
 import { Footer } from './components/Footer'
 import { ReservationModal } from './components/ReservationModal'
@@ -14,7 +15,8 @@ function App() {
     <>
       <Navbar onReservarClick={() => setModalOpen(true)} />
       <Hero onReservarClick={() => setModalOpen(true)} />
-      <Menu />
+      <Pricing onCtaClick={() => setModalOpen(true)} />
+      <Amenities />
       <Promociones />
       <Footer />
       <ReservationModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />

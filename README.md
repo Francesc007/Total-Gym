@@ -1,42 +1,53 @@
-# El Cactus Antojería - Landing Page
+# H TOTAL GYM — Landing
 
-Landing page de alto impacto para El Cactus Antojería, restaurante de comida mexicana tradicional en Tepeji del Río.
+Landing page mobile-first para **H TOTAL GYM** (Huehuetoca): planes, amenidades, promos y registro de leads vía WhatsApp.
 
-## 🚀 Inicio Rápido
+## Inicio rápido
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+Abre [http://localhost:5173](http://localhost:5173).
 
-## 📋 Configuración
+## Configuración
 
-Edita `src/config.ts` para personalizar:
+Edita `src/config.ts`:
 
-- **whatsappNumber**: Número de WhatsApp con código de país (ej: `527711234567`)
-- **googleMapsUrl**: Enlace directo a Google Maps del restaurante
-- **horarios**: Horarios de atención
+- **whatsappNumber**: número con código de país sin `+` (ej. `525543382080`)
+- **googleMapsUrl**, **facebookUrl**, **instagramUrl**
+- **horarios.lineas**: textos de horario mostrados en el footer
 
-## 🖼️ Logo
+Logo: coloca `Logo Total Gym.jpg` en `public/` (o ajusta `LOGO_SRC` en `config.ts`).
 
-Para usar tu logo oficial:
-1. Coloca `logo.png` en la carpeta `public/`
-2. En `src/components/Navbar.tsx`, cambia `src="/logo.svg"` por `src="/logo.png"`
-
-## 📦 Build para Producción
+## Build producción
 
 ```bash
 npm run build
 ```
 
-Los archivos se generan en la carpeta `dist/`.
+Salida en `dist/`.
 
-## 🛠️ Tecnologías
+## GitHub
 
-- React + TypeScript
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Lucide React (iconos)
+Repositorio: [github.com/Francesc007/Total-Gym](https://github.com/Francesc007/Total-Gym)
+
+```bash
+git remote -v
+git push -u origin main
+```
+
+## Vercel
+
+1. En [vercel.com](https://vercel.com) → **Add New** → **Project** → importa `Francesc007/Total-Gym`.
+2. Framework: **Vite** (detectado). Build: `npm run build`, output: `dist`.
+3. Deploy. Cada push a `main` puede generar un despliegue automático si activas Git Integration.
+
+El archivo `vercel.json` fija build y carpeta de salida por si el asistente no detecta el preset.
+
+## Stack
+
+- React 19 + TypeScript + Vite 8  
+- Tailwind CSS 4  
+- Framer Motion · Lucide React  

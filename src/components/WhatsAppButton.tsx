@@ -8,7 +8,9 @@ const WhatsAppIcon = () => (
 )
 
 export function WhatsAppButton() {
-  const mensaje = encodeURIComponent(`Hola El Cactus ${CONFIG.cactusEmoji}, tengo una consulta o duda que me gustaría resolver.`)
+  const mensaje = encodeURIComponent(
+    `Hola ${CONFIG.siteName} ${CONFIG.brandEmoji}, quiero información sobre membresías o clase de prueba.`
+  )
   const url = `https://api.whatsapp.com/send?phone=${CONFIG.whatsappNumber}&text=${mensaje}`
 
   return (
@@ -18,11 +20,11 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
-      transition={{ delay: 1, type: 'spring', stiffness: 200 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 right-6 z-40 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] flex items-center justify-center shadow-2xl hover:shadow-[#25D366]/50 animate-whatsapp-pulse"
-      aria-label="Contactar por WhatsApp"
+      transition={{ delay: 0.8, type: 'spring', stiffness: 220 }}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.96 }}
+      className="fixed bottom-5 right-5 z-40 w-14 h-14 md:w-16 md:h-16 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center shadow-2xl border border-neutral-600 animate-whatsapp-pulse"
+      aria-label="Escribir por WhatsApp a H TOTAL GYM"
     >
       <WhatsAppIcon />
     </motion.a>
